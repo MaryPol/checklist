@@ -1,49 +1,103 @@
-Чек-лист: для тестирования перевода средств между счетами
-1. Авторизация
-- Проверить успешный вход в систему с корректными учетными данными.
-- Проверить невозможность входа с некорректными данными (неверный логин/пароль, пустые поля).
-- Проверить, что после нескольких неудачных попыток входа учетная запись блокируется (если это предусмотрено).
-2. Доступность перевода
-- Проверить, что в главном меню есть пункт «Перевод средств».
-- Проверить, что при нажатии на этот пункт открывается правильный экран.
-- Проверить, что кнопка «Перевести» доступна после заполнения всех полей.
-3. Ввод суммы
-      Позитивные сценарии:
-•	Ввести корректную сумму (число больше 0, в пределах лимитов).
-•	Проверить, что сумма отображается верно.
-Негативные сценарии:
-•	Попробовать ввести текст вместо цифр → должно быть запрещено.
-•	Ввести отрицательное число → должно быть запрещено.
-•	Ввести 0 → перевод не должен выполняться.
-•	Ввести сумму, превышающую лимит → система должна показать сообщение об ошибке.
-•	Ввести слишком много цифр (например, 10000000000000) → должно быть ограничение.
-4. Выбор валюты перевода — если система поддерживает мультивалютные счета, проверить корректность выбора.
-5. Выбор счета получателя
-     Позитивные сценарии:
-•	Ввести номер счета вручную.
-•	Выбрать номер счета из списка сохраненных.
-     Негативные сценарии:
-•	Ввести несуществующий номер счета → должно появиться сообщение об ошибке.
-•	Ввести меньше цифр, чем требуется → должно появиться сообщение об ошибке.
-•	Ввести больше цифр, чем требуется → ввод должен быть ограничен.
-•	Ввести буквы в поле номера счета → должно быть запрещено (если это не IBAN).
-•	Ввести IBAN с некорректным форматом → должно появиться сообщение об ошибке.
-6. Возможность отмены перевода
-- Проверить, что есть кнопка «Отмена» перед подтверждением перевода.
-- Нажать «Отмена» и проверить, что перевод не выполняется.
-- Проверить, что после отмены система остается на экране перевода (или возвращается в главное меню).
-7. Лимиты на перевод — проверить, что нельзя перевести сумму, превышающую установленный лимит.
+Checklist: Fund Transfer Between Accounts Testing
 
-8. Проверка комиссии — убедиться, что комиссия рассчитывается и отображается правильно.
+Authorization
 
-9. Подтверждение перевода
- Позитивные сценарии:
-•	Подтвердить перевод и проверить, что деньги списались со счета-отправителя.
-•	Проверить, что получатель получил точную сумму.
-•	Проверить, что появилось уведомление об успешном переводе.
- Негативные сценарии:
-•	Отключить интернет перед подтверждением перевода → должно появиться сообщение об ошибке.
-•	Закрыть приложение до завершения перевода → перевод не должен выполняться.
-•	Дважды нажать кнопку «Подтвердить» → не должно быть двойного списания.
-10. Обработка ошибок сети/сервера — проверить, что будет, если перевод прервётся из-за разрыва соединения.
-11. История операций — проверить, что успешный перевод отобразился в истории транзакций.
+• Verify successful login with valid credentials.
+
+• Verify login is not possible with invalid credentials (incorrect username/password, empty fields).
+
+• Verify that after several failed login attempts, the account is locked (if applicable).
+
+Transfer Availability
+
+• Verify that the “Transfer Funds” option is available in the main menu.
+
+• Verify that clicking this option opens the correct screen.
+
+• Verify that the “Transfer” button becomes active after all required fields are filled.
+
+Amount Input
+
+Positive scenarios:
+
+• Enter a valid amount (greater than 0, within limits).
+
+• Verify that the amount is displayed correctly.
+
+Negative scenarios:
+
+• Try entering text instead of numbers → should be prohibited.
+
+• Enter a negative number → should be prohibited.
+
+• Enter 0 → transfer should not be allowed.
+
+• Enter an amount exceeding the limit → system should display an error message.
+
+• Enter too many digits (e.g., 10000000000000) → input should be limited.
+
+Currency Selection
+
+• If the system supports multi-currency accounts, verify correct currency selection.
+
+Recipient Account Selection
+
+Positive scenarios:
+
+• Enter the account number manually.
+
+• Select an account number from the saved list.
+
+Negative scenarios:
+
+• Enter a non-existent account number → an error message should appear.
+
+• Enter fewer digits than required → an error message should appear.
+
+• Enter more digits than required → input should be restricted.
+
+• Enter letters in the account number field → should be prohibited (unless IBAN format is supported).
+
+• Enter an incorrectly formatted IBAN → an error message should appear.
+
+Transfer Cancellation
+
+• Verify that a “Cancel” button is available before confirming the transfer.
+
+• Click “Cancel” and ensure the transfer is not executed.
+
+• Verify that after cancellation, the system remains on the transfer screen (or returns to the main menu).
+
+Transfer Limits
+
+• Verify that it’s not possible to transfer an amount exceeding the set limit.
+
+Fee Verification
+
+• Ensure the transfer fee is calculated and displayed correctly.
+
+Transfer Confirmation
+
+Positive scenarios:
+
+• Confirm the transfer and verify that the funds are debited from the sender’s account.
+
+• Verify that the recipient receives the exact amount.
+
+• Verify that a success notification appears.
+
+Negative scenarios:
+
+• Disable the internet before confirming the transfer → an error message should appear.
+
+• Close the app before the transfer completes → the transfer should not go through.
+
+• Press the “Confirm” button twice → there should be no duplicate charge.
+
+Network/Server Error Handling
+
+• Verify the system’s behavior if the transfer is interrupted due to a connection loss.
+
+Transaction History
+
+• Verify that a successful transfer appears in the transaction history.
