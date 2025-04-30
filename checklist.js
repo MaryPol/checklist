@@ -1,13 +1,13 @@
 Checklist: Fund Transfer Between Accounts Testing
-1.	1. Authorization
+1. Authorization
 •	Verify successful login with valid credentials.
 •	Verify login is not possible with invalid credentials (incorrect username/password, empty fields).
 •	Verify that after several failed login attempts, the account is locked (if applicable).
-2.	2. Transfer Availability
+2. Transfer Availability
 •	Verify that the “Transfer Funds” option is available in the main menu.
 •	Verify that clicking this option opens the correct screen.
 •	Verify that the “Transfer” button becomes active after all required fields are filled.
-3.	3. Amount Input
+3. Amount Input
 •	Positive scenarios:
 •	• Enter a valid amount (greater than 0, within limits).
 •	• Verify that the amount is displayed correctly.
@@ -17,9 +17,9 @@ Checklist: Fund Transfer Between Accounts Testing
 •	• Enter 0 → transfer should not be allowed.
 •	• Enter an amount exceeding the limit → system should display an error message.
 •	• Enter too many digits (e.g., 10000000000000) → input should be limited.
-4.	4. Currency Selection
+4.	Currency Selection
 •	If the system supports multi-currency accounts, verify correct currency selection.
-5.	5. Recipient Account Selection
+5.	Recipient Account Selection
 •	Positive scenarios:
 •	• Enter the account number manually.
 •	• Select an account number from the saved list.
@@ -29,15 +29,15 @@ Checklist: Fund Transfer Between Accounts Testing
 •	• Enter more digits than required → input should be restricted.
 •	• Enter letters in the account number field → should be prohibited (unless IBAN format is supported).
 •	• Enter an incorrectly formatted IBAN → an error message should appear.
-6.	6. Transfer Cancellation
+6.	Transfer Cancellation
 •	Verify that a “Cancel” button is available before confirming the transfer.
 •	Click “Cancel” and ensure the transfer is not executed.
 •	Verify that after cancellation, the system remains on the transfer screen (or returns to the main menu).
-7.	7. Transfer Limits
+7.	Transfer Limits
 •	Verify that it’s not possible to transfer an amount exceeding the set limit.
-8.	8. Fee Verification
+8.	Fee Verification
 •	Ensure the transfer fee is calculated and displayed correctly.
-9.	9. Transfer Confirmation
+9.	Transfer Confirmation
 •	Positive scenarios:
 •	• Confirm the transfer and verify that the funds are debited from the sender’s account.
 •	• Verify that the recipient receives the exact amount.
@@ -46,7 +46,7 @@ Checklist: Fund Transfer Between Accounts Testing
 •	• Disable the internet before confirming the transfer → an error message should appear.
 •	• Close the app before the transfer completes → the transfer should not go through.
 •	• Press the “Confirm” button twice → there should be no duplicate charge.
-10.	10. Network/Server Error Handling
+10.	Network/Server Error Handling
 •	Verify the system’s behavior if the transfer is interrupted due to a connection loss.
-11.	11. Transaction History
+11.	Transaction History
 •	Verify that a successful transfer appears in the transaction history.
